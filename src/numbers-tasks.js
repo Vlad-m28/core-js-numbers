@@ -201,12 +201,9 @@ function roundToPowerOfTen(num, pow) {
 function isPrime(n) {
   let k = 2;
 
-  if (n < 2) {
-    return false;
-  }
-  if (n === 2) {
-    return true;
-  }
+  if (n < 2) return false;
+
+  if (n === 2) return true;
 
   while (k < n) {
     if (n % k === 0) {
@@ -315,13 +312,9 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  const str = String(num);
-  let x0 = 0;
-  for (let i = 0; i < str.length; i += 1) {
-    const n = Number(str[i]);
-    x0 += n;
-  }
-  return x0;
+  return String(num)
+    .split('')
+    .reduce((acc, item) => acc + Number(item), 0);
 }
 
 /**
